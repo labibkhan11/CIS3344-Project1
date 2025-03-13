@@ -88,3 +88,18 @@ document.addEventListener("DOMContentLoaded", function () {
             form.reset();
         });
     }
+
+    if (window.location.pathname.includes("destination.html")) {
+        const selectedDestination = JSON.parse(localStorage.getItem("selectedDestination"));
+        const { title, image, description, itinerary, coordinates } = selectedDestination;
+
+        document.getElementById("destination-title").textContent = title;
+        document.getElementById("destination-image").src = image;
+        document.getElementById("destination-description").textContent = description;
+
+        const itineraryList = document.getElementById("itinerary-list");
+        itinerary.forEach(item => {
+            const li = document.createElement("li");
+            li.textContent = item;
+            itineraryList.appendChild(li);
+        });
