@@ -69,3 +69,22 @@ document.addEventListener("DOMContentLoaded", function () {
             container.appendChild(card);
         });
     }
+    const form = document.getElementById("booking-form");
+    if (form) {
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const travelers = document.getElementById("travelers").value;
+            const date = document.getElementById("date").value;
+
+            if (!name || !email || travelers < 1 || !date) {
+                alert("Please fill all fields correctly.");
+                return;
+            }
+
+            alert("Tour Booked!");
+            form.reset();
+        });
+    }
