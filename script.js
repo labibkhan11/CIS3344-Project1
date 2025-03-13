@@ -44,3 +44,28 @@ const travelData = `{
         }
     ]
 }`;
+
+document.addEventListener("DOMContentLoaded", function () {
+    const data = JSON.parse(travelData);
+    const container = document.getElementById("destinations-container");
+
+    if (container) {
+        data.destinations.forEach(destination => {
+            const { title, image, description } = destination;
+
+            const card = document.createElement("div");
+            card.classList.add("card");
+            card.innerHTML = `
+                <img src="${image}" alt="${title}">
+                <h3>${title}</h3>
+                <p>${description}</p>
+            `;
+
+            card.addEventListener("click", () => {
+                localStorage.setItem("selectedDestination", JSON.stringify(destination));
+                window.location.href = "destination.html";
+            });
+
+            container.appendChild(card);
+        });
+    }
