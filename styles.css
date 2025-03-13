@@ -73,6 +73,6 @@ form button {
     margin: 10px 0;
     padding: 8px;
     font-family: 'Papyrus', fantasy;
-    background: #0e2947;
+    background-image: url(images/sky.jpg);
     color: white;
 }
